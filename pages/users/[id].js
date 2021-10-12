@@ -1,6 +1,5 @@
 import { Container } from "../../components";
 import { useRouter } from "next/router";
-import style from './style/users.module.scss';
 
 function User({ user }) {
 	const { query } = useRouter();
@@ -8,7 +7,7 @@ function User({ user }) {
 	return (
 		<Container pageName={user.name}>
 			User with id {query.id}
-			<div className={style.userWrapper}>
+			<div className="user-wrapper">
 				<span>
 					Name: {user.name}
 				</span>
@@ -16,6 +15,13 @@ function User({ user }) {
 					Phone: {user.phone}
 				</span>
 			</div>
+			<style jsx>
+				{`.user-wrapper {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}`}
+			</style>
 		</Container>
 	)
 }

@@ -1,12 +1,18 @@
 import { Container, A } from "../../components";
-import style from './style/users.module.scss';
 
 export default function Users ({ users }) {
 	return <Container keywords={'users'} pageName={'Users'}>
 		<h1>Users list</h1>
-		<div className={style.usersWrapper}>
+		<div className="users-wrapper">
 			{users.map(item => <A key={item.id} text={item.name} href={`users/${item.id}`}/>)}
 		</div>
+		<style jsx>
+			{`.users-wrapper {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+				}`}
+		</style>
 	</Container>
 };
 
